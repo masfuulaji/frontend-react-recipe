@@ -22,18 +22,8 @@ class Offcanvas extends Component {
         <ul className="sidenav-nav ps-0">
           {/* <li><a href="page-home.html"><i className="bi bi-house-door"></i>Home</a></li> */}
           <li><Link to="/"><i className="bi bi-house-door"></i>Home</Link></li>
-          <li><a href="elements.html"><i className="bi bi-folder2-open"></i>Elements<span className="badge bg-danger rounded-pill ms-2">220+</span></a></li>
-          <li><a href="pages.html"><i className="bi bi-collection"></i>Pages<span className="badge bg-success rounded-pill ms-2">100+</span></a></li>
-          <li><a href="#"><i className="bi bi-cart-check"></i>Shop</a>
-            <ul>
-              <li><a href="page-shop-grid.html">Shop Grid</a></li>
-              <li><a href="page-shop-list.html">Shop List</a></li>
-              <li><a href="page-shop-details.html">Shop Details</a></li>
-              <li><a href="page-cart.html">Cart</a></li>
-              <li><a href="page-checkout.html">Checkout</a></li>
-            </ul>
-          </li>
-          <li><a href="settings.html"><i className="bi bi-gear"></i>Settings</a></li>
+          <li><Link to="/recipe"><i className="bi bi-card-list"></i>Recipe</Link></li>
+          <li><Link to="/category"><i className="bi bi-tag"></i>Category</Link></li>
           <li>
             <div className="night-mode-nav"><i className="bi bi-moon"></i>Night Mode
               <div className="form-check form-switch">
@@ -41,13 +31,12 @@ class Offcanvas extends Component {
               </div>
             </div>
           </li>
-          <li><a href="page-login.html"><i className="bi bi-box-arrow-right"></i>Logout</a></li>
         </ul>
          {/* Social Info  */}
         <div className="social-info-wrap"><a href="#"><i className="bi bi-facebook"></i></a><a href="#"><i className="bi bi-twitter"></i></a><a href="#"><i className="bi bi-linkedin"></i></a></div>
          {/* Copyright Info  */}
         <div className="copyright-info">
-          <p>2021 &copy; Made by<a href="#">Designing World</a></p>
+          <p>2022 &copy; Made by<a href="#">Not Human</a></p>
         </div>
       </div>
     </div>

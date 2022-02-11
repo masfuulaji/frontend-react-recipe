@@ -7,6 +7,7 @@ import Header from "./Components/Header";
 import Offcanvas from "./Components/Offcanvas";
 import Footer from "./Components/Footer";
 import Home from "./Views/Home/Home";
+import Recipe from "./Views/Recipe/Recipe";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Offcanvas />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/recipe" element={<Recipe />} />
           {/* <Route path="*" element={<NotFound />} /> */}
         </Routes>
         <Footer />
