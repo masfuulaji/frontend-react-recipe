@@ -29,13 +29,13 @@ class Recipe extends Component {
                       </span>
                       <Link
                         className="blog-title d-block mb-3 text-dark"
-                        to="/recipe/detail"
+                        to="1/detail"
                       >
                         The 5 best reviews in Affan
                       </Link>
                       <Link
                         className="btn btn-primary btn-sm"
-                        to="/recipe/detail"
+                        to="1/detail"
                       >
                         Read More
                       </Link>

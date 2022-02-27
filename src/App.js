@@ -19,24 +19,24 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/recipe" element={<Recipe />} />
-          <Route path="/recipe/detail" element={<RecipeDetail />} />
+          <Route path="/recipe/:id/detail" element={<RecipeDetail />} />
           {/* <Route path="*" element={<NotFound />} /> */}
         </Routes>
         <Footer />
         <HelmetProvider>
           <Helmet>
-            <script src="assets/js/bootstrap.bundle.min.js"></script>
-            <script src="assets/js/slideToggle.min.js"></script>
-            <script src="assets/js/internet-status.js"></script>
-            <script src="assets/js/tiny-slider.js"></script>
-            <script src="assets/js/baguetteBox.min.js"></script>
-            <script src="assets/js/countdown.js"></script>
-            <script src="assets/js/rangeslider.min.js"></script>
-            <script src="assets/js/vanilla-dataTables.min.js"></script>
-            <script src="assets/js/index.js"></script>
-            <script src="assets/js/magic-grid.min.js"></script>
-            <script src="assets/js/dark-rtl.js"></script>
-            <script src="assets/js/active.js"></script>
+            <script src="/assets/js/bootstrap.bundle.min.js"></script>
+            <script src="/assets/js/slideToggle.min.js"></script>
+            <script src="/assets/js/internet-status.js"></script>
+            <script src="/assets/js/tiny-slider.js"></script>
+            <script src="/assets/js/baguetteBox.min.js"></script>
+            <script src="/assets/js/countdown.js"></script>
+            <script src="/assets/js/rangeslider.min.js"></script>
+            <script src="/assets/js/vanilla-dataTables.min.js"></script>
+            <script src="/assets/js/index.js"></script>
+            <script src="/assets/js/magic-grid.min.js"></script>
+            <script src="/assets/js/dark-rtl.js"></script>
+            <script src="/assets/js/active.js"></script>
           </Helmet>
         </HelmetProvider>
       </div>
