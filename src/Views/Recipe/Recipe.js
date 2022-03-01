@@ -1,8 +1,49 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { retrievePosts, findPostsByTitle } from "../../actions/posts";
 import { Link } from "react-router-dom";
 
 class Recipe extends Component {
+  constructor(props) {
+    super(props);
+    this.onChangeSearchTitle = this.onChangeSearchTitle.bind(this);
+    this.refreshData = this.refreshData.bind(this);
+    this.setActivePost = this.setActivePost.bind(this);
+    this.findByTitle = this.findByTitle.bind(this);
+    this.state = {
+      currentPost: null,
+      currentIndex: -1,
+      searchTitle: "",
+    };
+  }
+  componentDidMount() {
+    this.props.retrievePosts();
+  }
+  onChangeSearchTitle(e) {
+    const searchTitle = e.target.value;
+    this.setState({
+      searchTitle: searchTitle,
+    });
+  }
+  refreshData() {
+    this.setState({
+      currentPost: null,
+      currentIndex: -1,
+    });
+  }
+  setActivePost(post, index) {
+    this.setState({
+      currentPost: post,
+      currentIndex: index,
+    });
+  }
+  findByTitle() {
+    this.refreshData();
+    this.props.findPostsByTitle(this.state.searchTitle);
+  }
   render() {
+    const { searchTitle, currentPost, currentIndex } = this.state;
+    const { posts } = this.props;
     return (
       <div className="page-content-wrapper py-3">
         {/* Pagination */}
@@ -33,10 +74,7 @@ class Recipe extends Component {
                       >
                         The 5 best reviews in Affan
                       </Link>
-                      <Link
-                        className="btn btn-primary btn-sm"
-                        to="1/detail"
-                      >
+                      <Link className="btn btn-primary btn-sm" to="1/detail">
                         Read More
                       </Link>
                     </div>
@@ -122,5 +160,13 @@ class Recipe extends Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    posts: state.posts,
+  };
+};
 
-export default Recipe;
+export default connect(mapStateToProps, {
+  retrievePosts,
+  findPostsByTitle,
+})(Recipe);

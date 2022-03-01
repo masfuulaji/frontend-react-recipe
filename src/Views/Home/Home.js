@@ -30,6 +30,7 @@ class Home extends Component {
             <div
               className="single-hero-slide bg-overlay"
               // style="background-image: url('img/bg-img/33.jpg')"
+              style={{ backgroundImage: `url('/assets/img/bg-img/33.jpg')` }}
             >
               <div className="h-100 d-flex align-items-center text-center">
                 <div className="container">
@@ -49,6 +50,7 @@ class Home extends Component {
             <div
               className="single-hero-slide bg-overlay"
               // style="background-image: url('img/bg-img/32.jpg')"
+              style={{ backgroundImage: `url('/assets/img/bg-img/32.jpg')` }}
             >
               <div className="h-100 d-flex align-items-center text-center">
                 <div className="container">
@@ -69,6 +71,7 @@ class Home extends Component {
             <div
               className="single-hero-slide bg-overlay"
               // style="background-image: url('img/bg-img/33.jpg')"
+              style={{ backgroundImage: `url('/assets/img/bg-img/33.jpg')` }}
             >
               <div className="h-100 d-flex align-items-center text-center">
                 <div className="container">
@@ -90,6 +93,7 @@ class Home extends Component {
             <div
               className="single-hero-slide bg-overlay"
               // style="background-image: url('img/bg-img/1.jpg')"
+              style={{ backgroundImage: `url('/assets/img/bg-img/1.jpg')` }}
             >
               <div className="h-100 d-flex align-items-center text-center">
                 <div className="container">
