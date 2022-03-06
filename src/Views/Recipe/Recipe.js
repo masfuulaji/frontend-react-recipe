@@ -67,22 +67,7 @@ class Recipe extends Component {
                             {post.total} {post.total_unit}
                           </span>
                           <span className="badge bg-info rounded-pill mb-2 d-inline-block">
-                            {() => {
-                              switch (post.level) {
-                                case 1:
-                                  return "Sangat Mudal";
-                                case 2:
-                                  return "Mudah";
-                                case 3:
-                                  return "Menengah";
-                                case 4:
-                                  return "Rumit";
-                                case 5:
-                                  return "Sangat Rumit";
-                                default:
-                                  return "-";
-                              }
-                            }}
+                            {post.serialize_level}
                           </span>
                           <Link
                             className="btn btn-primary btn-sm"
