@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { retrievePosts } from "../../actions/posts";
 import { Link } from "react-router-dom";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 class Recipe extends Component {
   // constructor(props) {
@@ -20,46 +22,80 @@ class Recipe extends Component {
           <div className="container">
             <div className="row g-3 justify-content-center">
               {/* Single Blog Card */}
-              {posts && posts.data === undefined
-                ? "Error"
-                : posts.data.data.map((post, index) => (
-                    <div
-                      className="col-12 col-md-8 col-lg-7 col-xl-6"
-                      key={index}
-                    >
-                      <div className="card shadow-sm blog-list-card">
-                        <div className="d-flex align-items-center">
-                          <div
-                            className="card-blog-img position-relative"
-                            style={{
-                              backgroundImage: `url('/assets/img/bg-img/22.jpg')`,
-                            }}
+              {posts && posts.data === undefined ? (
+                <div className="col-12 col-md-8 col-lg-7 col-xl-6">
+                  <div className="card shadow-sm blog-list-card">
+                    <div className="d-flex align-items-center">
+                      <div className="card-blog-img position-relative">
+                        <Skeleton className="m-2" height={150}></Skeleton>
+                      </div>
+                      <div className="card-blog-content">
+                        <Skeleton count={5}></Skeleton>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                posts.data.data.map((post, index) => (
+                  <div
+                    className="col-12 col-md-8 col-lg-7 col-xl-6"
+                    key={index}
+                  >
+                    <div className="card shadow-sm blog-list-card">
+                      <div className="d-flex align-items-center">
+                        <div
+                          className="card-blog-img position-relative"
+                          style={{
+                            backgroundImage: `url('/assets/img/bg-img/22.jpg')`,
+                          }}
+                        >
+                          <span className="badge bg-warning text-dark position-absolute card-badge">
+                            {post.title}
+                          </span>
+                        </div>
+                        <div className="card-blog-content">
+                          <Link
+                            className="blog-title d-block mb-3 text-dark"
+                            to="1/detail"
                           >
-                            <span className="badge bg-warning text-dark position-absolute card-badge">
-                              {post.title}
-                            </span>
-                          </div>
-                          <div className="card-blog-content">
-                            <span className="badge bg-danger rounded-pill mb-2 d-inline-block">
-                              25 Nov
-                            </span>
-                            <Link
-                              className="blog-title d-block mb-3 text-dark"
-                              to="1/detail"
-                            >
-                              The 5 best reviews in Affan
-                            </Link>
-                            <Link
-                              className="btn btn-primary btn-sm"
-                              to="1/detail"
-                            >
-                              Read More
-                            </Link>
-                          </div>
+                            {post.sub_title}
+                          </Link>
+                          <span className="badge bg-primary rounded-pill mb-2 d-inline-block">
+                            {post.time} {post.time_unit}
+                          </span>
+                          <span className="badge bg-success rounded-pill mb-2 d-inline-block">
+                            {post.total} {post.total_unit}
+                          </span>
+                          <span className="badge bg-info rounded-pill mb-2 d-inline-block">
+                            {() => {
+                              switch (post.level) {
+                                case 1:
+                                  return "Sangat Mudal";
+                                case 2:
+                                  return "Mudah";
+                                case 3:
+                                  return "Menengah";
+                                case 4:
+                                  return "Rumit";
+                                case 5:
+                                  return "Sangat Rumit";
+                                default:
+                                  return "-";
+                              }
+                            }}
+                          </span>
+                          <Link
+                            className="btn btn-primary btn-sm"
+                            to="1/detail"
+                          >
+                            Read More
+                          </Link>
                         </div>
                       </div>
                     </div>
-                  ))}
+                  </div>
+                ))
+              )}
             </div>
           </div>
           <div className="container">
