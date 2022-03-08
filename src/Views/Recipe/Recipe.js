@@ -6,9 +6,6 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
 class Recipe extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
   componentDidMount() {
     this.props.retrievePosts();
   }
@@ -56,7 +53,7 @@ class Recipe extends Component {
                         <div className="card-blog-content">
                           <Link
                             className="blog-title d-block mb-3 text-dark"
-                            to="1/detail"
+                            to={`${post.slug}`}
                           >
                             {post.sub_title}
                           </Link>
@@ -71,7 +68,7 @@ class Recipe extends Component {
                           </span>
                           <Link
                             className="btn btn-primary btn-sm"
-                            to="1/detail"
+                            to={`${post.slug}`}
                           >
                             Read More
                           </Link>
@@ -164,9 +161,7 @@ Recipe.defaultProps = {
   posts: [],
 };
 const mapStateToProps = (state) => ({
-  // return {
   posts: state.posts,
-  // };
 });
 export default connect(mapStateToProps, {
   retrievePosts,

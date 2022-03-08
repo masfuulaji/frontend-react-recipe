@@ -6,20 +6,8 @@ class PostDataService {
     get(id) {
       return http.get(`/post/${id}`);
     }
-    create(data) {
-      return http.post("/post", data);
-    }
-    update(id, data) {
-      return http.put(`/post/${id}`, data);
-    }
-    delete(id) {
-      return http.delete(`/post/${id}`);
-    }
-    deleteAll() {
-      return http.delete(`/post`);
-    }
-    findByTitle(title) {
-      return http.get(`/post?title=${title}`);
+    findBySlug(slug) {
+      return http.get(`/post/${slug}`);
     }
   }
   export default new PostDataService();
