@@ -1,5 +1,6 @@
 import {
   RETRIEVE_POSTS,
+  RETRIEVE_POST_DETAIL,
 } from "./types";
 import PostDataService from "../services/post.service";
 export const retrievePosts = () => async (dispatch) => {
@@ -17,7 +18,7 @@ export const findPostsBySlug = (slug) => async (dispatch) => {
   try {
     const res = await PostDataService.findBySlug(slug);
     dispatch({
-      type: RETRIEVE_POSTS,
+      type: RETRIEVE_POST_DETAIL,
       payload: res.data,
     });
   } catch (err) {

@@ -1,29 +1,26 @@
 import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { findPostsBySlug } from "../../actions/posts";
-import PostDataService from "../../services/post.service";
 import { useParams } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import SkeletonDetail from "./SkeletonDetail";
 
 const RecipeDetail = (prop) => {
   const params = useParams();
-  const initialPostState = "";
-  const [currentPost, setCurrentPost] = useState(initialPostState);
-
+  const post = useSelector((state) =>
+    state.posts.detailPost ? state.posts.detailPost : false
+  );
+  // const initialPostState = "";
+  // const [currentPost, setCurrentPost] = useState(initialPostState);
+  const dispatch = useDispatch();
   const getPost = (id) => {
-    PostDataService.findBySlug(id)
-      .then((response) => {
-        setCurrentPost(response.data);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+    dispatch(findPostsBySlug(id));
   };
   useEffect(() => {
-    console.log(params.slug);
     getPost(params.slug);
-  }, [params.slug]);
+    console.log(post)
+  }, []);
 
   return (
     <div className="page-content-wrapper">

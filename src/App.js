@@ -1,5 +1,4 @@
-import React from "react";
-import "./App.css";
+import React from "react"
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
