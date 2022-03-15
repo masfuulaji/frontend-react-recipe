@@ -14,7 +14,6 @@ const Recipe = () => {
   useEffect(() => {
     getPosts();
   }, []);
-  console.log(posts)
   return (
     <div className="page-content-wrapper py-3">
       {/* Pagination */}

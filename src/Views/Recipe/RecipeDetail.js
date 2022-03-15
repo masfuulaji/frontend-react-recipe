@@ -9,7 +9,7 @@ import SkeletonDetail from "./SkeletonDetail";
 const RecipeDetail = (prop) => {
   const params = useParams();
   const post = useSelector((state) =>
-    state.posts.detailPost ? state.posts.detailPost : false
+    state.posts.detailPost ? state.posts.detailPost.data : false
   );
   // const initialPostState = "";
   // const [currentPost, setCurrentPost] = useState(initialPostState);
@@ -19,7 +19,6 @@ const RecipeDetail = (prop) => {
   };
   useEffect(() => {
     getPost(params.slug);
-    console.log(post)
   }, []);
 
   return (
@@ -42,20 +41,13 @@ const RecipeDetail = (prop) => {
       <div className="blog-description py-3">
         <div className="container">
           <a className="badge bg-primary mb-2 d-inline-block" href="#">
-            News
+            Category
           </a>
           <h3 className="mb-3">
-            A collection of textile samples lay spread out on the table
+            {post.title}
           </h3>
           <div className="d-flex align-items-center mb-4">
-            <a className="badge-avater" href="#">
-              <img
-                className="img-circle"
-                src="/assets/img/bg-img/user1.png"
-                alt=""
-              />
-            </a>
-            <span className="ms-2">Jarah Clark</span>
+            <span className="ms-2">{post.sub_title}</span>
           </div>
           <p className="fz-14">
             One morning, when Gregor Samsa woke from troubled dreams, he found

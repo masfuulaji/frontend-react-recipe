@@ -8,6 +8,7 @@ import Footer from "./Components/Footer";
 import Home from "./Views/Home/Home";
 import Recipe from "./Views/Recipe/Recipe";
 import RecipeDetail from "./Views/Recipe/RecipeDetail";
+import Category from "./Views/Category";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/recipe" element={<Recipe />} />
           <Route path="/recipe/:slug" element={<RecipeDetail />} />
+          <Route path="/category" element={<Category />} />
           {/* <Route path="*" element={<NotFound />} /> */}
         </Routes>
         <Footer />
