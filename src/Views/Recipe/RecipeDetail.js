@@ -21,7 +21,7 @@ const RecipeDetail = (prop) => {
     getPost(params.slug);
   }, []);
 
-  return (
+  return post ? (
     <div className="page-content-wrapper">
       <div className="container">
         <div className="pt-3 d-block"></div>
@@ -43,9 +43,7 @@ const RecipeDetail = (prop) => {
           <a className="badge bg-primary mb-2 d-inline-block" href="#">
             Category
           </a>
-          <h3 className="mb-3">
-            {post.title}
-          </h3>
+          <h3 className="mb-3">{post.title}</h3>
           <div className="d-flex align-items-center mb-4">
             <span className="ms-2">{post.sub_title}</span>
           </div>
@@ -153,6 +151,8 @@ const RecipeDetail = (prop) => {
         </div>
       </div>
     </div>
+  ) : (
+    <SkeletonDetail></SkeletonDetail>
   );
 };
 export default RecipeDetail;

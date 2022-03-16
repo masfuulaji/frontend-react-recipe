@@ -1,113 +1,76 @@
 import React, { Component } from "react";
+import TinySlider from "tiny-slider-react";
+import "tiny-slider/dist/tiny-slider.css";
 
+const settings = {
+  lazyload: true,
+  nav: false,
+  mouseDrag: true,
+  loop: true,
+  controls: false,
+};
 class Home extends Component {
+  onGoTo = (dir) => this.ts.slider.goTo(dir);
   render() {
     return (
-      <div className="tiny-slider-one-wrapper">
-        <div className="tiny-slider-one">
-          {/* Single Hero Slide */}
-          <div>
-            <div
-              className="single-hero-slide bg-overlay"
-              // style="background-image: url('img/bg-img/31.jpg')"
-              style={{ backgroundImage: `url('/assets/img/bg-img/31.jpg')` }}
-            >
-              <div className="h-100 d-flex align-items-center text-center">
-                <div className="container">
-                  <h3 className="text-white mb-1">Build with Bootstrap 5</h3>
-                  <p className="text-white mb-4">
-                    Build fast, responsive sites with Bootstrap.
-                  </p>
-                  <a className="btn btn-creative btn-warning" href="#">
-                    Buy Now
-                  </a>
-                </div>
+      <div className="page-content-wrapper">
+        <TinySlider
+          className="tiny-slider-one-wrapper"
+          settings={settings}
+          ref={(ts) => (this.ts = ts)}
+        >
+          <div
+            className="single-hero-slide bg-overlay"
+            // style="background-image: url('img/bg-img/31.jpg')"
+            style={{ backgroundImage: `url('/assets/img/bg-img/31.jpg')` }}
+          >
+            <div className="h-100 d-flex align-items-center text-center">
+              <div className="container">
+                <h3 className="text-white mb-1">Build with Bootstrap 5</h3>
+                <p className="text-white mb-4">
+                  Build fast, responsive sites with Bootstrap.
+                </p>
+                <a className="btn btn-creative btn-warning" href="#">
+                  Buy Now
+                </a>
               </div>
             </div>
           </div>
-          {/* Single Hero Slide */}
-          <div>
-            <div
-              className="single-hero-slide bg-overlay"
-              // style="background-image: url('img/bg-img/33.jpg')"
-              style={{ backgroundImage: `url('/assets/img/bg-img/33.jpg')` }}
-            >
-              <div className="h-100 d-flex align-items-center text-center">
-                <div className="container">
-                  <h3 className="text-white mb-1">Vanilla JavaScript</h3>
-                  <p className="text-white mb-4">
-                    The whole code is written with vanilla JS.
-                  </p>
-                  <a className="btn btn-creative btn-warning" href="#">
-                    Buy Now
-                  </a>
-                </div>
+          <div
+            className="single-hero-slide bg-overlay"
+            // style="background-image: url('img/bg-img/31.jpg')"
+            style={{ backgroundImage: `url('/assets/img/bg-img/31.jpg')` }}
+          >
+            <div className="h-100 d-flex align-items-center text-center">
+              <div className="container">
+                <h3 className="text-white mb-1">Build with Bootstrap 5</h3>
+                <p className="text-white mb-4">
+                  Build fast, responsive sites with Bootstrap.
+                </p>
+                <a className="btn btn-creative btn-warning" href="#">
+                  Buy Now
+                </a>
               </div>
             </div>
           </div>
-          {/* Single Hero Slide */}
-          <div>
-            <div
-              className="single-hero-slide bg-overlay"
-              // style="background-image: url('img/bg-img/32.jpg')"
-              style={{ backgroundImage: `url('/assets/img/bg-img/32.jpg')` }}
-            >
-              <div className="h-100 d-flex align-items-center text-center">
-                <div className="container">
-                  <h3 className="text-white mb-1">PWA Ready</h3>
-                  <p className="text-white mb-4">
-                    Click the "Add to Home Screen" button &amp; <br /> enjoy it
-                    like an app.
-                  </p>
-                  <a className="btn btn-creative btn-warning" href="#">
-                    Buy Now
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* Single Hero Slide */}
-          <div>
-            <div
-              className="single-hero-slide bg-overlay"
-              // style="background-image: url('img/bg-img/33.jpg')"
-              style={{ backgroundImage: `url('/assets/img/bg-img/33.jpg')` }}
-            >
-              <div className="h-100 d-flex align-items-center text-center">
-                <div className="container">
-                  <h3 className="text-white mb-1">
-                    Lots of Elements &amp; Pages
-                  </h3>
-                  <p className="text-white mb-4">
-                    Create your website in days, not months.
-                  </p>
-                  <a className="btn btn-creative btn-warning" href="#">
-                    Buy Now
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* Single Hero Slide */}
-          <div>
-            <div
-              className="single-hero-slide bg-overlay"
-              // style="background-image: url('img/bg-img/1.jpg')"
-              style={{ backgroundImage: `url('/assets/img/bg-img/1.jpg')` }}
-            >
-              <div className="h-100 d-flex align-items-center text-center">
-                <div className="container">
-                  <h3 className="text-white mb-1">Dark &amp; RTL Ready</h3>
-                  <p className="text-white mb-4">
-                    You can use the Dark or <br /> RTL mode of your choice.
-                  </p>
-                  <a className="btn btn-creative btn-warning" href="#">
-                    Buy Now
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+        </TinySlider>
+        <div>
+          <button
+            style={{ float: "right" }}
+            className="btn m-1 btn-outline-primary"
+            type="button"
+            onClick={() => this.onGoTo("prev")}
+          >
+            <i class="bi bi-caret-right" />
+          </button>
+          <button
+            style={{ float: "right" }}
+            className="btn m-1 btn-outline-primary"
+            type="button"
+            onClick={() => this.onGoTo("next")}
+          >
+            <i class="bi bi-caret-left" />
+          </button>
         </div>
       </div>
     );

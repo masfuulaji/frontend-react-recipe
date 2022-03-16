@@ -8,7 +8,7 @@ const SkeletonDetail = () => {
       <div className="container">
         <div className="pt-3 d-block"></div>
         <div className="blog-details-post-thumbnail position-relative">
-          <Skeleton count={1}></Skeleton>
+          <Skeleton height={400}></Skeleton>
         </div>
       </div>
       <div className="blog-description py-3">

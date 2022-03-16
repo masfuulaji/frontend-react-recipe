@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import CardSkeleton from "../../Components/Skeleton/CardSkeleton";
 import CategoryDataService from "../../services/category.service";
 import { Link } from "react-router-dom";
+import Select from 'react-select'
 
 const Category = () => {
   const [categories, setCategories] = useState([]);
@@ -11,7 +12,10 @@ const Category = () => {
   const getCategories = async () => {
     CategoryDataService.getAll()
       .then((response) => {
-        setCategories(response.data.data.data);
+        let options = response.data.data.data.map(function (data) {
+          return { value: data.name, label: data.name };
+        })
+        setCategories(options);
       })
       .catch((e) => {
         console.log(e);
@@ -27,8 +31,8 @@ const Category = () => {
       });
   };
 
-  const setActiveCategory = (name) => {
-    setCategoryName(name);
+  const setActiveCategory = (data) => {
+    setCategoryName(data.value);
   };
 
   useEffect(() => {
@@ -46,13 +50,14 @@ const Category = () => {
               </label>
               <div className="row">
                 <div className="col-10">
-                  <select
-                    className="form-select"
-                    aria-label="Default select example"
-                    value={currentCategoryName}
-                    onChange={(event) => setActiveCategory(event.target.value)}
+                  <Select
+                    // className="form-select"
+                    // aria-label="Default select example"
+                    // value={currentCategoryName}
+                    onChange={(data) => setActiveCategory(data)}
+                    options={categories}
                   >
-                    <option value={""}>--Select Category--</option>
+                    {/* <option value={""}>--Select Category--</option>
                     {categories.length > 0 ? (
                       categories.map((category, index) => (
                         <option key={category.id} value={category.name}>
@@ -61,8 +66,8 @@ const Category = () => {
                       ))
                     ) : (
                       <option value={""}>--Empty--</option>
-                    )}
-                  </select>
+                    )} */}
+                  </Select>
                 </div>
                 <div className="col-2">
                   <button
@@ -96,7 +101,7 @@ const Category = () => {
                     <div className="card-blog-content">
                       <Link
                         className="blog-title d-block mb-3 text-dark"
-                        to={`${post.slug}`}
+                        to={`/recipe/${post.slug}`}
                       >
                         {post.sub_title}
                       </Link>
@@ -111,7 +116,7 @@ const Category = () => {
                       </span>
                       <Link
                         className="btn btn-primary btn-sm"
-                        to={`${post.slug}`}
+                        to={`/recipe/${post.slug}`}
                       >
                         Read More
                       </Link>
@@ -121,7 +126,7 @@ const Category = () => {
               </div>
             ))
           ) : (
-            <div>allo</div>
+            <CardSkeleton />
           )}
         </div>
       </div>
